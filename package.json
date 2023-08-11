@@ -1,0 +1,22 @@
+{
+  "name": "myinit",
+  "version": "1.0.0",
+  "description": "Bot para discord sobre Lore de historias varias",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IdeaFusionLab/Arbus-Lore.git"
+  },
+  "author": "Pablo López",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IdeaFusionLab/Arbus-Lore/issues"
+  },
+  "homepage": "https://github.com/IdeaFusionLab/Arbus-Lore#readme",
+  "dependencies": {
+    "discord.js": "^14.11.0"
+  }
+}
