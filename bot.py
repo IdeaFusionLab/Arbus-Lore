@@ -17,7 +17,7 @@ class LoreBot(Client):
 
 
 load_dotenv()
-DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+DISCORD_BOT_TOKEN = os.getenv('TOKEN')
 
 #Permisos
 
