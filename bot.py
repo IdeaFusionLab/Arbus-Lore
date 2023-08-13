@@ -5,11 +5,17 @@ from discord import app_commands, Intents, Interaction, Client
 from dotenv import load_dotenv
 import mysql.connector
 
+#Carga de env
+load_dotenv()
+DISCORD_BOT_TOKEN = os.getenv('TOKEN')
+USERMDB = os.getenv('userMDB')
+USERPASSWMDB = os.getenv('passwMB')
+
 # Configura la conexión a la base de datos
 db_connection = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="hmnofog1819",
+    user=USERMDB,
+    password=USERPASSWMDB,
     database="universe"
 )
 
@@ -30,12 +36,9 @@ class LoreBot(Client):
         await self.tree.sync(guild=None)
     #endregion
 
-#Carga de token
-load_dotenv()
-DISCORD_BOT_TOKEN = os.getenv('TOKEN')
+
 
 #Permisos
-
 bot = LoreBot(intents=Intents.default())
 
 # Comandos
@@ -54,6 +57,9 @@ async def lore(interaction: Interaction, cmd: str):
 
         db_cursor.execute(sql,values)
         db_connection.commit()
+        #Cierre de conexiones
+        db_cursor.close()
+        db_connection.close()
         await interaction.response.send_message(f'El comando introducido es: {cmd}')
     except mysql.connector.Error as err:
         print("Error en la inserción:", err)
